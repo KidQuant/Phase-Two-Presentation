@@ -345,4 +345,31 @@
 
 	\end{table}
 \end{frame}
+
+\begin{frame}
+	\centering
+	\vfill
+	{\Large \textbf{Model updates}}
+	\vfill
+\end{frame}
+
+\begin{frame}{Model Updates}
+	\begin{itemize}
+		\item Incorporating state statistics to summarize the behavior and propoerties of the states
+		      encountered by the RL agent.
+		\item Incorporating macroeconomic variables for regime detection in accordance with the
+		      Chen, Peiger, and Zhu paper (Deep Learning in Asset Pricing)
+		\item Including a single regime increased the state size from 3,931 to 4,324.
+	\end{itemize}
+
+\end{frame}
+
+\begin{frame}{Model Updates}
+	\begin{figure}
+		\centering
+		\includegraphics[width=1\textwidth]{./pics/regimes.png}
+		\caption{Macroeconomic Regimes to be included in the Decision Transformer.}
+	\end{figure}
+\end{frame}
+
 \end{document}

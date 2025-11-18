@@ -231,7 +231,7 @@
 		      \[
 			      \sigma^2=\frac{1}{N}\sum_{i=1}^{N}\left(x^{(i)}-\mu\right)^2
 		      \]
-		\item \textbf{Covariance and Correlation:} Quantify comovements.
+		\item \textbf{Covariance and Correlation:} Quantify co-movements.
 		      \[
 			      \text{Cov}(x,y)=\frac{1}{N}\sum_{i=1}^{N}\left(x^{(i)}-\mu_{x}\right)\left(y^{(i)}-\mu_{y}\right),\quad\rho_{xy}=\frac{\text{Cov}(x,y)}{\sigma_{x}\sigma_{y}}
 		      \]
@@ -239,7 +239,7 @@
 \end{frame}
 
 \begin{frame}{State Statistics}
-	Utilizing state statistics for Transformers is supported by research from Liu, Wu, Wang, and Long (2022).
+	The use of state statistics for Transformers is supported by research by Liu, Wu, Wang, and Long (2022).
 
 	\begin{figure}
 		\centering
@@ -273,7 +273,7 @@
 \end{frame}
 
 \begin{frame}{Trajectories}
-	This process of encoding trajectories is computationally expensive because the process involves
+	This process of encoding trajectories is computationally expensive because it involves
 	collecting entire episodes of agent-environment interactions and handling, storing, and
 	processing large datasets.
 \end{frame}
@@ -289,7 +289,7 @@
 \end{frame}
 
 \begin{frame}{High Performance Computing}
-	High-performance computing (HPC) can significantly accelerate research on RL for portfolio optimization, especially when using computationally demanding models like decision transformers in complex regimes.
+	High-performance computing (HPC) can significantly accelerate RL research for portfolio optimization, especially when using computationally intensive models such as decision transformers in complex regimes.
 	\begin{itemize}
 		\item \textbf{Parallelization and Speed:} HPC environments allows computational to be distributed across many CPUs and GPUs, drastically reducing the time for training RL models and grid searches over hyperparameters.
 		\item \textbf{Larger Models and Datasets:} We can train deeper transformer architectures and process longer trajectories or higher-dimensional state spaces, overcoming the memory and compute limits of a regular PC.

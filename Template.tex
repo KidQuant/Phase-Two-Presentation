@@ -355,7 +355,7 @@
 
 \begin{frame}{Model Updates}
 	\begin{itemize}
-		\item Incorporating state statistics to summarize the behavior and propoerties of the states
+		\item Incorporating state statistics to summarize the behavior and properties of the states
 		      encountered by the RL agent.
 		\item Incorporating macroeconomic variables for regime detection in accordance with the
 		      Chen, Peiger, and Zhu paper (Deep Learning in Asset Pricing)
@@ -370,6 +370,45 @@
 		\includegraphics[width=1\textwidth]{./pics/regimes.png}
 		\caption{Macroeconomic Regimes to be included in the Decision Transformer.}
 	\end{figure}
+\end{frame}
+
+\begin{frame}{Model Updates}
+	\begin{figure}
+		\centering
+		\includegraphics[width=1\textwidth]{./pics/performance.png}
+		\caption{Performance of Decision Transformer and PPO with and without regimes}
+	\end{figure}
+\end{frame}
+
+\begin{frame}
+\begin{table}[htbp]
+	\centering
+	\caption{Reinforcement Learning Algorithms Parameters}
+	\label{tab:logrent_regression}
+	\begin{tabular}{lccccc}
+		\toprule
+		&&	& Naive & DT & PPO \\
+		\midrule
+		\textit{Without Regimes:}     &&  &         &         &        \\
+		\quad Annual Return             &&  & 0.151657   & 0.160969   & 0.187503  \\
+		\quad Sharpe Ratio             &&  &  0.98472  &  1.071349  & 1.300689  \\
+		\quad Max Drawdown         		 &&  & -0.155387  & -0.145308  & -0.122458 \\
+		&&  & 		 &		   &  \\
+		\textit{With Regimes:}                &&  &         &         &         \\
+		\quad Annual Return           &&  &   0.151657      & 0.148791  &  0.249243  \\
+		\quad Sharpe Ratio              & &    &0.98472     & 0.966856  &  0.15500    \\
+        \quad Max Drawdown              & &     &-0.155387  &-0.150140 & -0.159952    \\
+		&&  & 		 &		   &  \\	
+		\bottomrule
+	\end{tabular}
+\end{table}
+\end{frame}
+
+\begin{frame}
+	\centering
+	\vfill
+	{\Large \textbf{Next Steps}}
+	\vfill
 \end{frame}
 
 \end{document}

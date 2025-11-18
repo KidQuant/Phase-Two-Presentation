@@ -151,6 +151,12 @@
 
 \end{frame}
 
+\begin{frame}
+	\centering
+	\vfill
+	{\Large \textbf{Background}}
+	\vfill
+\end{frame}
 \begin{frame}{Reinforcement Learning Environment}
 
 	Recall the environment, $\mathcal{M}$, which we have established with the following parameters
@@ -186,6 +192,13 @@
 	where $H_{\max}$ is the maximum shares traded per stock, $V_0$ is the initial portfolio value, $\tau$ is the transaction cost percentage, $N$ are the number of assets, $\alpha$ is the reward scaling factor, $I$ and $K$ are the number of indicators and regime variables respectively.
 \end{frame}
 
+\begin{frame}
+	\centering
+	\vfill
+	{\Large \textbf{Stationarity Issues}}
+	\vfill
+\end{frame}
+
 \begin{frame}{Stationarity Issues}
 	Running reinforcement learning (RL) algorithms with a decision transformer (DT) across many
 	different states introduces stationarity issues, such as
@@ -206,6 +219,63 @@
 		\item \textbf{Enable Regime-Specific Modeling:} By segmenting historical data based on regime labels, conditional statistics can be computed.
 		\item \textbf{Support Feature Engineering and Normalization:} Aggregate statistics allow for robust feature scaling, improved training stability, and the direction of non-stationarities or structural breaks across different periods
 	\end{itemize}
+\end{frame}
+
+\begin{frame}{State Statistics}
+	\begin{itemize}
+		\item \textbf{Mean:} Central tendency of a state feature.
+		      \[
+			      \mu=\frac{1}{N}\sum_{i=1}^{N}x^{(i)}
+		      \]
+		\item \textbf{Variance and Standard Deviation:} Measure the dispersion or risk.
+		      \[
+			      \sigma^2=\frac{1}{N}\sum_{i=1}^{N}\left(x^{(i)}-\mu\right)^2
+		      \]
+		\item \textbf{Covariance and Correlation:} Quantify comovements.
+		      \[
+			      \text{Cov}(x,y)=\frac{1}{N}\sum_{i=1}^{N}\left(x^{(i)}-\mu_{x}\right)\left(y^{(i)}-\mu_{y}\right),\quad\rho_{xy}=\frac{\text{Cov}(x,y)}{\sigma_{x}\sigma_{y}}
+		      \]
+	\end{itemize}
+\end{frame}
+
+\begin{frame}{State Statistics}
+	Utilizing state statistics for Transformers is supported by research from Liu, Wu, Wang, and Long (2022).
+
+	\begin{figure}
+		\centering
+		\includegraphics[width=0.8\textwidth]{./pics/non_stationarity.png}
+		\caption{Visualization of learned temporal attentions for different series with varied mean
+			$\mu$ and standard deviation $\sigma$.}
+	\end{figure}
+\end{frame}
+
+\begin{frame}
+	\centering
+	\vfill
+	{\Large \textbf{Computational Issues}}
+	\vfill
+\end{frame}
+
+\begin{frame}{Trajectories}
+
+	Recall that DT frames RL problems as a sequence modeling problem, which leverages the
+	mathematics and architecture of Transformer models by training pre-collected (offline)
+	trajectories and encoding each input sequence to predict future returns.
+
+\end{frame}
+
+\begin{frame}{Trajectories}
+	Recall the sequence of states, actions, and rewards collected over time $s_t,a_t,r_t$ and the state, action, and reward at timestep $t$. This sequence is defined as the \textbf{trajectory} in the MDP, defined by the following:
+	\[
+		\tau=\lbrace\left(s_0,a_0,r_0\right),(s_1,a_1,r_1),\ldots,(s_T,a_T,r_T) \rbrace,
+	\]
+	where $T$ is denotes the final timestep in the trajectory.
+\end{frame}
+
+\begin{frame}{Trajectories}
+	This process of encoding trajectories is computationally expensive because the process involves
+	collecting entire episodes of agent-environment interactions and handling, storing, and
+	processing large datasets.
 \end{frame}
 
 \begin{frame}{Computational Issues}

@@ -106,7 +106,7 @@
 %System description details at \cite{w2020shift}}
 }
 \date{\\
-{\footnotesize November 11th, 2025}}
+{\footnotesize November 18th, 2025}}
 
 \subject{Talk at Venue}
 
@@ -144,9 +144,12 @@
 \begin{frame}{Overview}
 
 	\begin{itemize}
-		\item Addressing computational issues in the trajectory state extraction from the DRL
+		\item Addressing the stationarity issues of the Decision Transformer.
 		      \newline
-		\item Incorporating the regimes from the Deep Learning in Asset Pricing Paper (Chen et al.)
+		\item Addressing the computational issues with extracting state trajectories for the
+		      Decision Transformer.
+		      \newline
+		\item Model updates and performance.
 	\end{itemize}
 
 \end{frame}
@@ -203,7 +206,7 @@
 	Running reinforcement learning (RL) algorithms with a decision transformer (DT) across many
 	different states introduces stationarity issues, such as
 	\begin{itemize}
-		\item \textbf{Nonstationarity and Regime Shift:}  DT may conflate regimes, failing to recognize when a feature distribution changes.
+		\item \textbf{Stationarity and Regime Shift:}  DT may conflate regimes, failing to recognize when a feature distribution changes.
 		\item \textbf{Poor Feature Scaling and Instability:} Transformer architectures are sensitive
 		      to outliers and input scale.
 		\item \textbf{Empaired Risk and Exposure Control:} The DT may unknowingly overweight risky
@@ -345,6 +348,13 @@
 
 	\end{table}
 \end{frame}
+\begin{frame}{Model Updates}
+	\begin{figure}
+		\centering
+		\includegraphics[width=0.9\textwidth]{./pics/ticket.png}
+		\caption{Ticket with Tech Support Approving JARVIS Access.}
+	\end{figure}
+\end{frame}
 
 \begin{frame}
 	\centering
@@ -381,33 +391,49 @@
 \end{frame}
 
 \begin{frame}
-\begin{table}[htbp]
-	\centering
-	\caption{Reinforcement Learning Algorithms Parameters}
-	\label{tab:logrent_regression}
-	\begin{tabular}{lccccc}
-		\toprule
-		&&	& Naive & DT & PPO \\
-		\midrule
-		\textit{Without Regimes:}     &&  &         &         &        \\
-		\quad Annual Return             &&  & 0.151657   & 0.160969   & 0.187503  \\
-		\quad Sharpe Ratio             &&  &  0.98472  &  1.071349  & 1.300689  \\
-		\quad Max Drawdown         		 &&  & -0.155387  & -0.145308  & -0.122458 \\
-		&&  & 		 &		   &  \\
-		\textit{With Regimes:}                &&  &         &         &         \\
-		\quad Annual Return           &&  &   0.151657      & 0.148791  &  0.249243  \\
-		\quad Sharpe Ratio              & &    &0.98472     & 0.966856  &  0.15500    \\
-        \quad Max Drawdown              & &     &-0.155387  &-0.150140 & -0.159952    \\
-		&&  & 		 &		   &  \\	
-		\bottomrule
-	\end{tabular}
-\end{table}
+	\begin{table}[htbp]
+		\centering
+		\caption{Reinforcement Learning Algorithms Parameters}
+		\label{tab:logrent_regression}
+		\begin{tabular}{lccccc}
+			\toprule
+			                          &  &  & Naive     & DT        & PPO       \\
+			\midrule
+			\textit{Without Regimes:} &  &  &           &           &           \\
+			\quad Annual Return       &  &  & 0.151657  & 0.160969  & 0.187503  \\
+			\quad Sharpe Ratio        &  &  & 0.98472   & 1.071349  & 1.300689  \\
+			\quad Max Drawdown        &  &  & -0.155387 & -0.145308 & -0.122458 \\
+			                          &  &  &           &           &           \\
+			\textit{With Regimes:}    &  &  &           &           &           \\
+			\quad Annual Return       &  &  & 0.151657  & 0.148791  & 0.249243  \\
+			\quad Sharpe Ratio        &  &  & 0.98472   & 0.966856  & 0.15500   \\
+			\quad Max Drawdown        &  &  & -0.155387 & -0.150140 & -0.159952 \\
+			                          &  &  &           &           &           \\
+			\bottomrule
+		\end{tabular}
+	\end{table}
 \end{frame}
 
 \begin{frame}
 	\centering
 	\vfill
 	{\Large \textbf{Next Steps}}
+	\vfill
+\end{frame}
+
+\begin{frame}{Next Steps}
+	The following steps will be incorporated, as soon as I figure out how JARVIS works
+	\begin{itemize}
+		\item Increasing the step size and credit assignment for the model.
+		\item Work with different regimes (unemployment, oil prices, interest rates, etc.).
+		\item Increase the number of assets.
+	\end{itemize}
+\end{frame}
+
+\begin{frame}
+	\centering
+	\vfill
+	{\Large \textbf{Questions?}}
 	\vfill
 \end{frame}
 

@@ -187,14 +187,14 @@
 \end{frame}
 
 \begin{frame}{Stationarity Issues}
-	Running reinformcement learning (RL) algorithms with decision transformer (DT) across many
+	Running reinforcement learning (RL) algorithms with a decision transformer (DT) across many
 	different states introduces stationarity issues, such as
 	\begin{itemize}
-		\item \textbf{Nonstationarity and Regime Shift:}  DT may conflate regimes, falling to recongize when a feature distribution changes.
+		\item \textbf{Nonstationarity and Regime Shift:}  DT may conflate regimes, falling to recognize when a feature distribution changes.
 		\item \textbf{Poor Feature Scaling and Instability:} Transformer architectures are sensitive
 		      to outliers and input scale.
 		\item \textbf{Empaired Risk and Exposure Control:} The DT may unknowingly overweight risky
-		      assets in high-volatility regimes or fail to detect regimes-dependent risk.
+		      assets in high-volatility regimes or fail to detect regime-dependent risk.
 	\end{itemize}
 \end{frame}
 
@@ -202,13 +202,9 @@
 	State statistics help us diagnose market structures and create tailored signals for robust model
 	training and evaluation. The purpose issues
 	\begin{itemize}
-		\item \textbf{Characterize Market Environments:} State statistics quantify the typical and
-		      extreme behaviors of the features that describes the market or eocnomic regimes.
-		\item \textbf{Enable Regime-Specific Modeling:} By segmenting historical data based on
-		      regime labels, conditional statistics can be computed.
-		\item \textbf{Support Feature Engineering and Normalization:} Aggregate statistics allow for
-		      robust feature scaling, improved training stability, and the direction of
-		      non-stationarties or structural breaks across different periods
+		\item \textbf{Characterize Market Environments:} State statistics quantify the typical and extreme behaviors of the features that describe the market or economic regimes.
+		\item \textbf{Enable Regime-Specific Modeling:} By segmenting historical data based on regime labels, conditional statistics can be computed.
+		\item \textbf{Support Feature Engineering and Normalization:} Aggregate statistics allow for robust feature scaling, improved training stability, and the direction of non-stationarities or structural breaks across different periods
 	\end{itemize}
 \end{frame}
 

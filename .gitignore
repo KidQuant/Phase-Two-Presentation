@@ -1,0 +1,45 @@
+# -------------------------
+# macOS system files
+# -------------------------
+.DS_Store
+
+# -------------------------
+# LaTeX auxiliary files
+# -------------------------
+*.aux
+*.bbl
+*.bcf
+*.blg
+*.fdb_latexmk
+*.fls
+*.fmt
+*.fot
+*.glg
+*.glo
+*.gls
+*.ist
+*.lof
+*.log
+*.lot
+*.lox
+*.nav
+*.out
+*.pdf
+*.run.xml
+*.snm
+*.synctex.gz
+*.synctex.gz(busy)
+*.toc
+*.vrb
+*.xdv
+
+# -------------------------
+# latexmk outputs
+# -------------------------
+*.fdb_latexmk
+*.fls
+
+# -------------------------
+# editor-specific files
+# -------------------------
+indent.log

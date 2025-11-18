@@ -1,0 +1,197 @@
+\documentclass[xcolor={table}, aspectratio=169]{beamer}
+%
+% Choose how your presentation looks.
+%
+% For more themes, color themes and font themes, see:
+% http://deic.uab.es/~iblanes/beamer_gallery/index_by_theme.html
+%
+\defbeamertemplate{footline}{my frame number}
+{
+    \hfill
+    \usebeamercolor[fg]{page number in head/foot}
+    \usebeamerfont{page number in head/foot}
+    \raisebox{0.25cm}[0pt][0pt]{
+        \insertframenumber\kern1em}
+}
+\mode<presentation>
+{
+    \usetheme{default}
+    \usecolortheme{seagull}
+    \usefonttheme{default}
+    \setbeamertemplate{caption}[numbered]
+    \setbeamertemplate{footline}[my frame number]
+    \setbeamertemplate{navigation symbols}{}
+    \addtobeamertemplate{frametitle}{\vskip+0.5ex}{}
+}
+% \AtBeginSection[] {
+%     \begin{frame}<beamer>
+%     \frametitle{Outline}
+%     \tableofcontents[currentsection]
+%     \end{frame}
+% }
+% \AtBeginSubsection[] {
+%     \begin{frame}<beamer>
+%     \frametitle{Outline}
+%     \tableofcontents[currentsection, currentsubsection]
+%     \end{frame}
+% }
+
+\usepackage[english]{babel}
+\usepackage[export]{adjustbox}
+\usepackage[permil]{overpic}
+\usepackage{threeparttable}
+\usepackage{graphicx}
+\usepackage{subcaption}
+\usepackage{setspace}
+\usepackage{ulem}
+
+\usepackage{subcaption}
+\usepackage{psfrag}
+%\usepackage{natbib}
+\usepackage[autocite=superscript,backend=bibtex, style=authoryear]{biblatex}
+\addbibresource{refs.bib}
+
+\usepackage{multirow}
+\usepackage{hyperref}
+\usepackage{graphicx}
+\usepackage{color}
+% \usepackage{cleveref}
+\usepackage[font=scriptsize]{caption}
+\usepackage{booktabs}
+\usepackage{amsmath}
+
+\usepackage{siunitx}
+
+\sisetup{output-exponent-marker=\ensuremath{\mathrm{e}}}
+
+
+
+%\usepackage{fontspec}
+
+\graphicspath{{stevens/}{figures/}}
+
+\makeatletter
+\def\beamer@framenotesbegin{% at beginning of slide
+     \usebeamercolor[fg]{normal text}
+      \gdef\beamer@noteitems{}%
+      \gdef\beamer@notes{}%
+}
+\makeatother
+
+\usebackgroundtemplate
+{
+    \begin{tabular}{@{}c@{}}
+        \includegraphics[width=\paperwidth]{presentation_top.png} \\
+        \rule{0pt}{0.74\paperheight} \\
+        \includegraphics[width=\paperwidth]{presentation_bottom.png}
+    \end{tabular}
+}
+
+\vspace{1cm}
+
+\title[Lit Review]
+      {Phase Two Presentation: RL vs. Naive Diversification\\
+      \large{Robustness and Frictions Across Market Regimes}}
+
+\author[Author] % (optional, use only with lots of authors)
+{Andre Sealy}
+% - Use the \inst{?} command only if the authors have different
+%   affiliation.
+
+\institute[Stevens Institute] % (optional, but mostly needed)
+{
+	Advisor: Jingrui (Victoria) Li\\
+  Financial Engineering 800\\
+  Stevens Institute of Technology\\
+%System description details at \cite{w2020shift}}
+}
+\date{\\
+{\footnotesize November 11th, 2025}}
+
+\subject{Talk at Venue}
+
+
+%\author[Ionut Florescu]{\texorpdfstring{\footnotesize Ionu\c{t} Florescu \\
+%       \vspace*{0.5\baselineskip}
+%     {\footnotesize Committee: \\
+%      Dr. George Calhoun, Dr. Dragoș Bozdog, \\
+%      Dr. Emmanuel Hatzakis, Dr. Rupak Chatterjee}}{Ionu\c{t} Florescu}}
+% \institute{\footnotesize Financial Engineering}
+% \date{{\footnotesize September 12, 2020}}
+
+\begin{document}
+
+{
+\setbeamertemplate{footline}{}
+\usebackgroundtemplate
+{
+	\begin{tabular}{@{}c@{}}
+		\begin{overpic}[width=\paperwidth]{title_top.png}
+			\put(25,-35){\includegraphics[height=0.15\paperheight]{title_logo.png}}
+		\end{overpic} \\
+		\rule{0pt}{0.74\paperheight}                     \\
+		\includegraphics[width=\paperwidth]{title_bottom.png}
+	\end{tabular}
+}
+
+\begin{frame}
+
+	\titlepage
+
+\end{frame}
+}
+
+\begin{frame}{Overview}
+
+	\begin{itemize}
+		\item Addressing computational issues in the trajectory state extraction from the DRL
+		      \newline
+		\item Incorporating the regimes from the Deep Learning in Asset Pricing Paper (Chen et al.)
+	\end{itemize}
+
+\end{frame}
+
+\begin{frame}{Computational Issues}
+	Running reinforcement learning (RL) algorithms with decision transformers (DT) across many different states introduces several computational challenges, such as,
+	\begin{itemize}
+		\item \textbf{High Memory Requirements:} Significant amounts of memory are required for storing and processing trajectories.
+		\item \textbf{Data Inefficiencies:} Many different states demand more samples to cover the space adequately, compounding dataset size and training time.
+		\item \textbf{Sequence Alignment and Temporal Credit Assignment:} The more states the DT has, aligning and credit outcomes to earlier actions becomes computationally more difficult.
+		\item \textbf{Model Size and Training Cost:} DT may need larger transformer models, which require more computational resources, longer training times, and powerful hardware.
+	\end{itemize}
+\end{frame}
+
+\begin{frame}{High Performance Computing}
+	High-performance computing (HPC) can significantly accelerate research on RL for portfolio optimization, especially when using computationally demanding models like decision transformers in complex regimes.
+	\begin{itemize}
+		\item \textbf{Parallelization and Speed:} HPC environments allows computational to be distributed across many CPUs and GPUs, drastically reducing the time for training RL models and grid searches over hyperparameters.
+		\item \textbf{Larger Models and Datasets:} We can train deeper transformer architectures and process longer trajectories or higher-dimensional state spaces, overcoming the memory and compute limits of a regular PC.
+		\item \textbf{Handling Frictions and Constraints:} Simulating realistic trading frictions (transaction costs, slippage, etc.) requires substantial computation and state tracking.
+	\end{itemize}
+\end{frame}
+
+\begin{frame}{JARVIS}
+	\begin{columns}
+		\column{0.6\textwidth}
+		Stevens Institute of Technology's HPC cluster JARVIS is a state-of-the-art computing resource designed to support advanced research across the university.
+		\begin{itemize}
+			\item \textbf{Compute Resources:} JARVIS consists 55 codes, providing 3,168 CPU cores and 32 GPUs, including 8 advanced Nvidia L40s GPUs.
+			\item \textbf{Memory:} The cluster has 14 TBs of memory, which enables it to handle complex, memory-intensive workloads.
+			\item \textbf{Storage:} It includes 1.2 petabytes (PB) of storage, supporting larged dataset and model checkpoint management.
+		\end{itemize}
+		\column{0.5\textwidth}
+		\begin{figure}
+			\includegraphics[width=1.\textwidth]{./pics/jarvis.jpeg}
+			\caption{Not actually Steven's JARVIS}
+		\end{figure}
+	\end{columns}
+\end{frame}
+
+\begin{frame}{HPC Motivations}
+	\begin{itemize}
+		\item Utilizing S\&
+	\end{itemize}
+
+\end{frame}
+
+\end{document}

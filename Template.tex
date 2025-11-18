@@ -44,7 +44,7 @@
 \usepackage{subcaption}
 \usepackage{setspace}
 \usepackage{ulem}
-
+\usepackage{amssymb}
 \usepackage{subcaption}
 \usepackage{psfrag}
 %\usepackage{natbib}
@@ -314,11 +314,35 @@
 	\end{columns}
 \end{frame}
 
-\begin{frame}{HPC Motivations}
-	\begin{itemize}
-		\item Utilizing S\&
-	\end{itemize}
+\begin{frame}{Workstation Computational Comparisons}
+	\begin{table}[htbp]
+		\centering
+		\caption{Benchmark of DT Runtime with Various Computer Specs.}
+		\label{tab:logrent_regression}
 
+		{\scriptsize
+			\begin{tabular}{lcccc}
+				\toprule
+				                                     &                    & Hanlon              & \$ 10 Million          & JARVIS               \\
+				                                     &                    & Lab                 & Studio (mine)          &                      \\
+				\midrule
+				\textit{Workstation Specifications:} &                    &                     &                        &                      \\
+				\quad  CPU                           &                    & Intel i9-11900      & AMD Ryzen 9 5950X      & Intel                \\
+				\quad  GPU                           &                    & NVIDIA GeForce 3070 & NVIDIA GeForce 4090 TI & NVIDIA
+				L40S                                                                                                                            \\
+				\quad  Memory                        &                    & 64GB (2x32 GB)      & 128GB (4x32
+				GB)                                  & 17TB                                                                                     \\
+				\midrule
+				Runtime Detection                    &                    & GPU                 & GPU
+				                                     & CPU or GPU                                                                               \\
+				Total Training Steps                 &                    & 600,000             & 1,000,000
+				                                     & Significantly more                                                                       \\
+				Total Runtime$                       &                    & 125 Hours           & 27 hours               & Significantly faster \\
+				Crashes Occasionally?                &                    & \checkmark          &                        &                      \\
+				\bottomrule
+			\end{tabular}
+		} % end scriptsize group
+
+	\end{table}
 \end{frame}
-
 \end{document}

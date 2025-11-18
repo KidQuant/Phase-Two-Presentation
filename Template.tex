@@ -151,6 +151,67 @@
 
 \end{frame}
 
+\begin{frame}{Reinforcement Learning Environment}
+
+	Recall the environment, $\mathcal{M}$, which we have established with the following parameters
+
+	\[
+		\mathcal{M}=\left(\mathcal{S},\mathcal{A},P,\mathcal{R},\Theta\right)
+	\]
+	where
+	\begin{itemize}
+		\item $\mathcal{A}\in\mathbb{R}^N$ is the action space, where $N$ are the number of assets.
+		\item $\mathcal{S}$ is the state space, which is a linear combination of different position states.
+		\item $P$ are the transition dynamics governed by market dynamics and portfolio evolution.
+		\item $\mathcal{R}$ is the reward function or the return on the portfolio.
+		\item $\Theta$ are the custom trading parameters
+	\end{itemize}
+\end{frame}
+
+\begin{frame}{Reinforcement Learning Environment}
+
+	The custom parameters of $\Theta$ are denoted by the following:
+	\[
+		\Theta =
+		\begin{cases}
+			H_{\max},              & H_{\max}=100   \\
+			V_0\in\mathbb{R}^+     & V_0=1,000,000  \\
+			\tau\in[0,1),          & \tau=0.005     \\
+			N\in\mathbb{N},        & N=394          \\
+			I\in\mathbb{N},        & I=8            \\
+			K\in\mathbb{N},        & K=2            \\
+			\alpha\in\mathbb{R}^+, & \alpha=10^{-1} \\
+		\end{cases}
+	\]
+	where $H_{\max}$ is the maximum shares traded per stock, $V_0$ is the initial portfolio value, $\tau$ is the transaction cost percentage, $N$ are the number of assets, $\alpha$ is the reward scaling factor, $I$ and $K$ are the number of indicators and regime variables respectively.
+\end{frame}
+
+\begin{frame}{Stationarity Issues}
+	Running reinformcement learning (RL) algorithms with decision transformer (DT) across many
+	different states introduces stationarity issues, such as
+	\begin{itemize}
+		\item \textbf{Nonstationarity and Regime Shift:}  DT may conflate regimes, falling to recongize when a feature distribution changes.
+		\item \textbf{Poor Feature Scaling and Instability:} Transformer architectures are sensitive
+		      to outliers and input scale.
+		\item \textbf{Empaired Risk and Exposure Control:} The DT may unknowingly overweight risky
+		      assets in high-volatility regimes or fail to detect regimes-dependent risk.
+	\end{itemize}
+\end{frame}
+
+\begin{frame}{State Statistics}
+	State statistics help us diagnose market structures and create tailored signals for robust model
+	training and evaluation. The purpose issues
+	\begin{itemize}
+		\item \textbf{Characterize Market Environments:} State statistics quantify the typical and
+		      extreme behaviors of the features that describes the market or eocnomic regimes.
+		\item \textbf{Enable Regime-Specific Modeling:} By segmenting historical data based on
+		      regime labels, conditional statistics can be computed.
+		\item \textbf{Support Feature Engineering and Normalization:} Aggregate statistics allow for
+		      robust feature scaling, improved training stability, and the direction of
+		      non-stationarties or structural breaks across different periods
+	\end{itemize}
+\end{frame}
+
 \begin{frame}{Computational Issues}
 	Running reinforcement learning (RL) algorithms with decision transformers (DT) across many different states introduces several computational challenges, such as,
 	\begin{itemize}
